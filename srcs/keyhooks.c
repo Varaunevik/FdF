@@ -6,18 +6,10 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:55:32 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/23 14:33:02 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:09:19 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
-
-void	zoom(int keycode, t_fdf *fdf)
-{
-	if (keycode == ZOOM_IN)
-		fdf->zoom += 1;
-	else if (keycode == ZOOM_OUT && fdf->zoom > 0)
-		fdf->zoom -= 1;
-}
 
 /** This function is in charge of updating the angles of the grid b and hence 
  * rotates the view in correspondance with the key that is being pressed.
@@ -52,13 +44,6 @@ void	shift(int keycode, t_fdf *fdf)
 		fdf->x_shift -= 4;
 	if (keycode == RIGHT)
 		fdf->x_shift += 4;
-}
-
-/** This function is in charge of moving the elevation up or down
- * depending on the keycode pressed
-**/
-void	z_move(int keycode, t_fdf *fdf)
-{
 	if (keycode == Z_UP)
 		fdf->z_height += 0.05;
 	if (keycode == Z_DOWN)
@@ -82,11 +67,6 @@ void	change_color(t_fdf *fdf, int keycode)
 		fdf->palette = 2;
 		palette_3(fdf);
 	}
-	if (keycode == 21)
-	{
-		fdf->palette = 4;
-		disco_disco(fdf);
-	}
 }
 
 /** This function is in charge of the key press events. It will check
@@ -101,39 +81,36 @@ int	handle_key(int keycode, void *param)
 	fdf = (t_fdf *)param;
 	if (keycode == 53)
 		exit_program(fdf);
-	if (keycode == UP || keycode == DOWN || keycode == LEFT || keycode == RIGHT)
+	if (keycode == UP || keycode == DOWN || keycode == LEFT || keycode == RIGHT
+		|| keycode == Z_UP || keycode == Z_DOWN)
 		shift(keycode, fdf);
 	if (keycode == ROTATE_X || keycode == REVROT_X || keycode == ROTATE_Y
-			|| keycode == REVROT_Y || keycode == ROTATE_Z || keycode == REVROT_Z)
+		|| keycode == REVROT_Y || keycode == ROTATE_Z || keycode == REVROT_Z)
 		rotate(keycode, fdf);
 	if (keycode == ZOOM_IN || keycode == ZOOM_OUT)
 		zoom(keycode, fdf);
-	if (keycode == Z_UP || keycode == Z_DOWN)
-		z_move(keycode, fdf);
 	handle_key2(keycode, fdf);
 	draw_map(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-				fdf->img->img_ptr, 0, 0);
+		fdf->img->img_ptr, 0, 0);
 	if (fdf->iso)
 		mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-					fdf->interface->isometric, 0, 0);
+			fdf->interface->isometric, 0, 0);
 	else
 		mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-					fdf->interface->parallel, 0, 0);
+			fdf->interface->parallel, 0, 0);
 	return (0);
 }
 
 void	handle_key2(int keycode, t_fdf *fdf)
 {
 	if (keycode == TOP || keycode == SIDE)
-    {
-        fdf->iso = 0;
-        parallel(fdf, keycode);
-    }
-    if (keycode == RESET)
-        reset_view(fdf);
-    if (keycode == 18 || keycode == 19 || keycode == 20)
-        change_color(fdf, keycode);
-    if (keycode == 21)
-        disco_disco(fdf);
+	{
+		fdf->iso = 0;
+		parallel(fdf, keycode);
+	}
+	if (keycode == RESET)
+		reset_view(fdf);
+	if (keycode == 18 || keycode == 19 || keycode == 20)
+		change_color(fdf, keycode);
 }

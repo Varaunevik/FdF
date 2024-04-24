@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:02:11 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 12:05:56 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:47:20 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -45,8 +45,8 @@ void	draw_map(t_fdf *fdf)
 	make_img(fdf);
 	fdf->a = &a;
 	fdf->b = &b;
-	x = 0;
-	while (x < fdf->width)
+	x = -1;
+	while (++x < fdf->width)
 	{
 		y = 0;
 		while (y < fdf->height)
@@ -61,23 +61,19 @@ void	draw_map(t_fdf *fdf)
 				draw_line(fdf);
 			y++;
 		}
-		x++;
 	}
 }
 
 void	put_panel(t_fdf *fdf)
 {
-	int	width_iso;
-	int	height_iso;
-	int	width_parallel;
-	int	height_parallel;
-	int	width_start;
-	int	height_start;
+	t_panel	isometric;
+	t_panel	parallel;
+	t_panel	start;
 
 	fdf->interface->isometric = mlx_xpm_file_to_image(fdf->mlx_ptr,
-			"./xpm/Isometric.xpm", &width_iso, &height_iso);
+			"./xpm/Isometric.xpm", &isometric.width, &isometric.height);
 	fdf->interface->parallel = mlx_xpm_file_to_image(fdf->mlx_ptr,
-			"./xpm/Parallel.xpm", &width_parallel, &height_parallel);
+			"./xpm/Parallel.xpm", &parallel.width, &parallel.height);
 	fdf->interface->start = mlx_xpm_file_to_image(fdf->mlx_ptr,
-			"./xpm/start.xpm", &width_start, &height_start);
+			"./xpm/start.xpm", &start.width, &start.height);
 }

@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:47:12 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 12:05:43 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:59:02 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -18,7 +18,7 @@
 **/
 void	rotate_x(t_fdf *fdf)
 {
-    int	tmp;
+	int	tmp;
 
 	tmp = fdf->a->y;
 	fdf->a->y = tmp * cos(fdf->x_angle) - fdf->a->z * sin(fdf->x_angle);
@@ -31,7 +31,7 @@ void	rotate_x(t_fdf *fdf)
 void	rotate_z(t_fdf *fdf)
 {
 	int	tmp;
-	
+
 	tmp = fdf->a->x;
 	fdf->a->x = tmp * cos(fdf->z_angle) - fdf->a->y * sin(fdf->z_angle);
 	fdf->a->y = tmp * sin(fdf->z_angle) + fdf->a->y * cos(fdf->z_angle);

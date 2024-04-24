@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 15:19:21 by vaunevik          #+#    #+#             */
+/*   Updated: 2024/04/24 15:20:21 by vaunevik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef FDF_H
 # define FDF_H
 
@@ -30,10 +41,9 @@ void	make_cool(t_fdf	*fdf);
 /****************COLOR.C***************/
 int		**init_colors(t_fdf *fdf);
 int		find_color(float z, int max_color, int min_color);
-void 	disco_disco(t_fdf *fdf);
-void    palette_1(t_fdf *fdf);
-void    palette_2(t_fdf *fdf);
-void    palette_3(t_fdf *fdf);
+void	palette_1(t_fdf *fdf);
+void	palette_2(t_fdf *fdf);
+void	palette_3(t_fdf *fdf);
 
 /***************KEYHOOKS.C************/
 void	zoom(int keycode, t_fdf *fdf);
@@ -41,18 +51,18 @@ void	rotate(int keycode, t_fdf *fdf);
 void	shift(int keycode, t_fdf *fdf);
 void	z_move(int keycode, t_fdf *fdf);
 int		handle_key(int keycode, void *param);
-void    handle_key2(int keycode, t_fdf *fdf);
+void	handle_key2(int keycode, t_fdf *fdf);
 void	change_color(t_fdf *fdf, int keycode);
 
 /*************MOUSEHOOKS.C*************/
-int	handle_mouse_release(int button, int x, int y, void *param);
-int	handle_mouse(int button, int x, int y, void *param);
+int		handle_mouse_release(int button, int x, int y, void *param);
+int		handle_mouse(int button, int x, int y, void *param);
 
 /**************PARSE.C*****************/
-int	store_value(int i, int j, t_fdf *fdf, char **line);
-int	*get_row(t_fdf *fdf, char *line, int j);
-int	**fill_map(t_fdf *fdf, int fd, int **map);
-int	**make_map(t_fdf *fdf, char *file);
+int		store_value(int i, int j, t_fdf *fdf, char **line);
+int		*get_row(t_fdf *fdf, char *line, int j);
+int		**fill_map(t_fdf *fdf, int fd, int **map);
+int		**make_map(t_fdf *fdf, char *file);
 
 /************PERSPECTIVE.C**************/
 void	isometric(t_fdf *fdf);
@@ -61,8 +71,8 @@ void	reset_view(t_fdf *fdf);
 float	fraction(float min, float max, float current);
 
 /************TRANSFORM.C****************/
-void    rotate_x(t_fdf *fdf);
-void    rotate_z(t_fdf *fdf);
+void	rotate_x(t_fdf *fdf);
+void	rotate_z(t_fdf *fdf);
 void	rotate_y(t_fdf *fdf);
 void	coordinates(t_fdf *fdf);
 

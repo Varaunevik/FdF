@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_structs.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 15:20:41 by vaunevik          #+#    #+#             */
+/*   Updated: 2024/04/24 15:53:41 by vaunevik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef FDF_STRUCTS_H
-#define FDF_STRUCTS_H
+# define FDF_STRUCTS_H
 
 # define ERR_MALLOC "Error: malloc allocation failed"
 # define READ_ERR "Error: reading failure"
@@ -33,7 +44,7 @@
 # define ESC 53
 # define DISCO 35
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img_ptr;
 	char	*addr;
@@ -42,7 +53,7 @@ typedef struct	s_img
 	int		line_len;
 }	t_img;
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int		x;
 	int		y;
@@ -60,10 +71,16 @@ typedef struct s_interface
 	void	*start;
 }	t_interface;
 
+typedef struct s_panel
+{
+	int	width;
+	int	height;
+}	t_panel;
+
 /** This is our main big structure that contains all information
  * and some pointers to other structures due to the norm.
 **/
-typedef struct	s_fdf
+typedef struct s_fdf
 {
 	void		*mlx_ptr;
 	void		*win_ptr;

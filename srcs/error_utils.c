@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:11:17 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/22 14:16:19 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:34:36 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -44,8 +44,8 @@ void	free_array(int	**array)
 	free(array);
 }
 
-/** This function checks whether the file given as input is in the correct format
- * aka. checking whether it ends with .fdf
+/** This function checks whether the file given as input is in
+ * the correct format aka. checking whether it ends with .fdf
 **/
 int	check_file(char *s)
 {

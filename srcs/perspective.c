@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:59:51 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 12:05:33 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:58:22 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -51,13 +51,13 @@ void	reset_view(t_fdf *fdf)
 	fdf->iso = 1;
 	draw_map(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-				fdf->img->img_ptr, 0, 0);
+		fdf->img->img_ptr, 0, 0);
 	if (fdf->iso)
 		mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-					fdf->interface->isometric, 0, 0);
+			fdf->interface->isometric, 0, 0);
 	else
 		mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-					fdf->interface->parallel, 0, 0);
+			fdf->interface->parallel, 0, 0);
 }
 
 float	fraction(float min, float max, float current)

@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:47:10 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 12:11:34 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:07:57 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -19,7 +19,7 @@ int	**init_colors(t_fdf *fdf)
 {
 	int	i;
 	int	j;
-	int **colors;
+	int	**colors;
 
 	i = 0;
 	colors = malloc(sizeof(int *) * fdf->height);
@@ -31,7 +31,7 @@ int	**init_colors(t_fdf *fdf)
 		colors[i] = malloc(sizeof(int) * fdf->width);
 		if (!colors[i])
 			(free_array(colors), perror(ERR_MALLOC), exit(1));
-		while(++j < fdf->width)
+		while (++j < fdf->width)
 			colors[i][j] = 0xb6cde8;
 		i++;
 	}
@@ -42,91 +42,82 @@ int	**init_colors(t_fdf *fdf)
  * the fraction and calls the find_color function, effectively
  * filling the map with a gradient.
 **/
-void    palette_3(t_fdf *fdf)
+void	palette_3(t_fdf *fdf)
 {
-    int     i;
-    int     j;
-    float   frac;
+	int		i;
+	int		j;
+	float	frac;
 
-    i = 0;
-    j = 0;
-    frac = 0;
-    while (i < fdf->height)
-    {
-    j = 0;
-        while (j < fdf->width)
-        {
-            if (fdf->max != fdf->min)
-                frac = fraction(fdf->min, fdf->max, fdf->map[i][j]);
-
-             fdf->colored_map[i][j] = find_color(frac, 0xFFDE59, 0x99AEC4);
-             j++;
-          }
-        i++;
-      }
-}
- 
-void    palette_2(t_fdf *fdf)
-{
-    int     i;
-    int     j;
-    float   frac;
-
-    i = 0;
-    j = 0;
-    frac = 0;
-    while (i < fdf->height)
-    {
+	i = 0;
+	j = 0;
+	frac = 0;
+	while (i < fdf->height)
+	{
 		j = 0;
 		while (j < fdf->width)
-        {
-            if (fdf->max != fdf->min)
-                frac = fraction(fdf->min, fdf->max, fdf->map[i][j]);
-
-             fdf->colored_map[i][j] = find_color(frac, 0xF08BB1, 0xDED6C9);
-             j++;
-        }
-        i++;
-	}
-}
- 
-void    palette_1(t_fdf *fdf)
-{
-    int     i;
-    int     j;
-    float   frac;
-
-    i = 0;
-    j = 0;
-    frac = 0;
-    while (i < fdf->height)
-    {
-		j = 0;
-		while (j < fdf->width)
-        {
-            if (fdf->max != fdf->min)
-                frac = fraction(fdf->min, fdf->max, fdf->map[i][j]);
-
-             fdf->colored_map[i][j] = find_color(frac, 0xE8EEF2, 0x77B6EA);
-             j++;
-        }
-        i++;
+		{
+			if (fdf->max != fdf->min)
+				frac = fraction(fdf->min, fdf->max, fdf->map[i][j]);
+			fdf->colored_map[i][j] = find_color(frac, 0xFFDE59, 0x99AEC4);
+			j++;
+		}
+		i++;
 	}
 }
 
-/** This function will iterate through the color palettes to create a disco effect.**/
-void disco_disco(t_fdf *fdf)
+void	palette_2(t_fdf *fdf)
 {
-		 palette_1(fdf);
-		 palette_2(fdf);
-		 palette_3(fdf);
+	int		i;
+	int		j;
+	float	frac;
+
+	i = 0;
+	j = 0;
+	frac = 0;
+	while (i < fdf->height)
+	{
+		j = 0;
+		while (j < fdf->width)
+		{
+			if (fdf->max != fdf->min)
+				frac = fraction(fdf->min, fdf->max, fdf->map[i][j]);
+			fdf->colored_map[i][j] = find_color(frac, 0xF08BB1, 0xDED6C9);
+			j++;
+		}
+		i++;
+	}
 }
 
-/** This function extracts the individual color value from the min and max color and
- * multiplies it with a fraction to calculate the gradient color in accordance with the
- * current position of the coordinate.
+void	palette_1(t_fdf *fdf)
+{
+	int		i;
+	int		j;
+	float	frac;
+
+	i = 0;
+	j = 0;
+	frac = 0;
+	while (i < fdf->height)
+	{
+		j = 0;
+		while (j < fdf->width)
+		{
+			if (fdf->max != fdf->min)
+				frac = fraction(fdf->min, fdf->max, fdf->map[i][j]);
+			fdf->colored_map[i][j] = find_color(frac, 0xE8EEF2, 0x77B6EA);
+			j++;
+		}
+		i++;
+	}
+}
+
+/** This function extracts the individual color value from the min 
+ * and max color and multiplies it with a fraction to calculate 
+ * the gradient color in accordance with the current position 
+ * of the coordinate.
  * It uses the function: r = r1 + (r2 - r1) * fraction for each R G B T.
- * Keep in mind this will differ depending on which operating system, this is little endian.
+ * Keep in mind this will differ depending on which operating system, 
+ * this is little endian.
 **/
 int	find_color(float fraction, int max_color, int min_color)
 {
@@ -135,9 +126,13 @@ int	find_color(float fraction, int max_color, int min_color)
 	int	b;
 	int	t;
 
-	b = (min_color & 255) + ((max_color & 255) - (min_color & 255)) * fraction;
-	g = ((min_color >> 8) & 255) + (((max_color >> 8) & 255) - ((min_color >> 8) & 255)) * fraction;
-	r = ((min_color >> 16) & 255) + (((max_color >> 16) & 255) - ((min_color >> 16) & 255)) * fraction;
-	t = ((min_color >> 24) & 255) + (((max_color >> 24) & 255) - ((min_color >> 24) & 255)) * fraction;
+	b = (min_color & 255) + ((max_color & 255)
+			- (min_color & 255)) * fraction;
+	g = ((min_color >> 8) & 255) + (((max_color >> 8) & 255)
+			- ((min_color >> 8) & 255)) * fraction;
+	r = ((min_color >> 16) & 255) + (((max_color >> 16) & 255)
+			- ((min_color >> 16) & 255)) * fraction;
+	t = ((min_color >> 24) & 255) + (((max_color >> 24) & 255)
+			- ((min_color >> 24) & 255)) * fraction;
 	return (t << 24 | r << 16 | g << 8 | b);
 }

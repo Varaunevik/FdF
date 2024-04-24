@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 10:59:34 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/23 13:50:34 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:34:17 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -21,13 +21,13 @@ void	draw_line(t_fdf *fdf)
 	int	dy;
 
 	fdf->a->z = fdf->map[(fdf->a->y + fdf->height / 2)]
-				[(fdf->a->x + fdf->width / 2)] * fdf->z_height; 
+	[(fdf->a->x + fdf->width / 2)] * fdf->z_height;
 	fdf->b->z = fdf->map[(fdf->b->y + fdf->height / 2)]
-				[(fdf->b->x + fdf->width / 2)] * fdf->z_height;
+	[(fdf->b->x + fdf->width / 2)] * fdf->z_height;
 	fdf->a->color = fdf->colored_map[(fdf->a->y + fdf->height / 2)]
-				[(fdf->a->x + fdf->width / 2)];
+	[(fdf->a->x + fdf->width / 2)];
 	fdf->b->color = fdf->colored_map[(fdf->b->y + fdf->height / 2)]
-				[(fdf->b->x + fdf->width / 2)];
+	[(fdf->b->x + fdf->width / 2)];
 	coordinates(fdf);
 	dx = fdf->b->x - fdf->a->x;
 	dy = fdf->b->y - fdf->a->y;
@@ -47,7 +47,7 @@ void	draw_line(t_fdf *fdf)
 void	slope_under_one(int dx, int dy, t_fdf *fdf)
 {
 	int	p;
-	int i;
+	int	i;
 
 	i = -1;
 	p = 2 * abs(dy) - abs(dx);
@@ -73,8 +73,8 @@ void	slope_under_one(int dx, int dy, t_fdf *fdf)
 
 void	slope_over_one(int dx, int dy, t_fdf *fdf)
 {
-	int p;
-	int i;
+	int	p;
+	int	i;
 
 	i = -1;
 	p = 2 * abs(dx) - abs(dy);
@@ -107,14 +107,18 @@ void	my_mlx_pixel_put_over(int x, int y, t_fdf *fdf)
 	pixel = y * fdf->img->line_len + x * 4;
 	if (x < WIDTH && x > 0 && y > 0 && y < HEIGHT)
 	{
-		addr[pixel + 0] = ((fdf->a->color) & 255) + (((fdf->b->color) & 255)
-				- ((fdf->a->color) & 255)) * fraction(fdf->a->y, fdf->b->y, y);
-		addr[pixel + 1] = ((fdf->a->color >> 8) & 255) + (((fdf->b->color >> 8) & 255)
-				- ((fdf->a->color >> 8) & 255)) * fraction(fdf->a->y, fdf->b->y, y);
-		addr[pixel + 2] = ((fdf->a->color >> 16) & 255) + (((fdf->b->color >> 16) & 255)
-				- ((fdf->a->color >> 16) & 255)) * fraction(fdf->a->y, fdf->b->y, y);
-		addr[pixel + 3] = ((fdf->a->color >> 24) & 255) + (((fdf->b->color >> 24) & 255)
-				- ((fdf->a->color >> 24) & 255)) * fraction(fdf->a->y, fdf->b->y, y);
+		addr[pixel + 0] = ((fdf->a->color) & 255)
+			+ (((fdf->b->color) & 255) - ((fdf->a->color) & 255))
+			* fraction(fdf->a->y, fdf->b->y, y);
+		addr[pixel + 1] = ((fdf->a->color >> 8) & 255)
+			+ (((fdf->b->color >> 8) & 255) - ((fdf->a->color >> 8) & 255))
+			* fraction(fdf->a->y, fdf->b->y, y);
+		addr[pixel + 2] = ((fdf->a->color >> 16) & 255)
+			+ (((fdf->b->color >> 16) & 255) - ((fdf->a->color >> 16) & 255))
+			* fraction(fdf->a->y, fdf->b->y, y);
+		addr[pixel + 3] = ((fdf->a->color >> 24) & 255)
+			+ (((fdf->b->color >> 24) & 255) - ((fdf->a->color >> 24) & 255))
+			* fraction(fdf->a->y, fdf->b->y, y);
 	}
 }
 
@@ -127,13 +131,17 @@ void	my_mlx_pixel_put_under(int x, int y, t_fdf *fdf)
 	pixel = y * fdf->img->line_len + x * 4;
 	if (x < WIDTH && x > 0 && y > 0 && y < HEIGHT)
 	{
-		addr[pixel + 0] = ((fdf->a->color) & 255) + (((fdf->b->color) & 255)
-				- ((fdf->a->color) & 255)) * fraction(fdf->a->x, fdf->b->x, x);
-		addr[pixel + 1] = ((fdf->a->color >> 8) & 255) + (((fdf->b->color >> 8) & 255)
-				- ((fdf->a->color >> 8) & 255)) * fraction(fdf->a->x, fdf->b->x, x);
-		addr[pixel + 2] = ((fdf->a->color >> 16) & 255) + (((fdf->b->color >> 16) & 255)
-				- ((fdf->a->color >> 16) & 255)) * fraction(fdf->a->x, fdf->b->x, x);
-		addr[pixel + 3] = ((fdf->a->color >> 24) & 255) + (((fdf->b->color >> 24) & 255)
-				- ((fdf->a->color >> 24) & 255)) * fraction(fdf->a->x, fdf->b->x, x);
+		addr[pixel + 0] = ((fdf->a->color) & 255)
+			+ (((fdf->b->color) & 255) - ((fdf->a->color) & 255))
+			* fraction(fdf->a->x, fdf->b->x, x);
+		addr[pixel + 1] = ((fdf->a->color >> 8) & 255)
+			+ (((fdf->b->color >> 8) & 255) - ((fdf->a->color >> 8) & 255))
+			* fraction(fdf->a->x, fdf->b->x, x);
+		addr[pixel + 2] = ((fdf->a->color >> 16) & 255)
+			+ (((fdf->b->color >> 16) & 255) - ((fdf->a->color >> 16) & 255))
+			* fraction(fdf->a->x, fdf->b->x, x);
+		addr[pixel + 3] = ((fdf->a->color >> 24) & 255)
+			+ (((fdf->b->color >> 24) & 255) - ((fdf->a->color >> 24) & 255))
+			* fraction(fdf->a->x, fdf->b->x, x);
 	}
 }

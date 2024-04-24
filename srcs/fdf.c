@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:54:56 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 12:05:30 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/24 15:46:27 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -37,8 +37,8 @@ void	init_fdf(t_fdf *fdf, char *file)
 	fdf->zoom = (WIDTH / fdf->width) / 3;
 }
 
-/** This function initializes our window and stores the pointer to the session and
- * to the window in our fdf struct. 
+/** This function initializes our window and stores the pointer
+ * to the session and to the window in our fdf struct. 
 **/
 void	init_window(t_fdf *fdf)
 {
@@ -51,8 +51,9 @@ void	init_window(t_fdf *fdf)
 }
 
 /** This function initialises the window and all the hook functions. 
- * We will have a hook for all our mouse events as well as the esc keypress command. 
- * In this case we want to exit the program. We continue the loop infinite number (until exit program)
+ * We will have a hook for all our mouse events as well as the esc keypress
+ * command. In this case we want to exit the program. We continue the loop 
+ * infinite number (until exit program)
 **/
 void	make_cool(t_fdf	*fdf)
 {
@@ -66,13 +67,13 @@ void	make_cool(t_fdf	*fdf)
 	img.img_ptr = mlx_new_image(fdf->mlx_ptr, WIDTH, HEIGHT);
 	if (!img.img_ptr)
 		(perror(MLX_IMG),
-		 	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr), exit(1));
+			mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr), exit(1));
 	fdf->interface = &interface;
 	fdf->img = &img;
 	draw_map(fdf);
 	put_panel(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
-				fdf->interface->start, 0, 0);
+		fdf->interface->start, 0, 0);
 	mlx_hook(fdf->win_ptr, 2, 0, &handle_key, fdf);
 	mlx_hook(fdf->win_ptr, 4, 0, &handle_mouse, fdf);
 	mlx_hook(fdf->win_ptr, 17, 0, &exit_program, fdf);
