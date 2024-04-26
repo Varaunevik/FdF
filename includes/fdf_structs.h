@@ -6,21 +6,11 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:20:41 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 15:53:41 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:53:34 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_STRUCTS_H
 # define FDF_STRUCTS_H
-
-# define ERR_MALLOC "Error: malloc allocation failed"
-# define READ_ERR "Error: reading failure"
-# define ARG_ERROR "Error: wrong number of arguments"
-# define FILE_ERR "Error: wrong file format"
-# define EMPT_ERR "Error: file is empty"
-# define MLX_WIN "Error: cannot open window"
-# define MLX_INIT "Error: cannot initiate session"
-# define MLX_IMG "Error: cannot create image"
-# define ERR_OPEN "Error: cannot open file"
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -42,7 +32,6 @@
 # define TOP 17
 # define SIDE 1
 # define ESC 53
-# define DISCO 35
 
 typedef struct s_img
 {

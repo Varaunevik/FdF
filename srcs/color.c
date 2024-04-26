@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:47:10 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 16:07:57 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 11:17:16 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -24,13 +24,13 @@ int	**init_colors(t_fdf *fdf)
 	i = 0;
 	colors = malloc(sizeof(int *) * fdf->height);
 	if (!colors)
-		(perror(ERR_MALLOC), exit(1));
+		(error(1), exit(1));
 	while (i < fdf->height)
 	{
 		j = -1;
 		colors[i] = malloc(sizeof(int) * fdf->width);
 		if (!colors[i])
-			(free_array(colors), perror(ERR_MALLOC), exit(1));
+			(free_array(colors), error(1), exit(1));
 		while (++j < fdf->width)
 			colors[i][j] = 0xb6cde8;
 		i++;

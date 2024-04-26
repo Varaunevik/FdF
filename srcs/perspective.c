@@ -6,11 +6,16 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:59:51 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 15:58:22 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:26:20 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
 
+/** This function is what creates the isometric view by applying
+ * the isometric transformation matrix to the coordinates (30deg). 
+ * it is important that this is done after the rotations so 
+ * they don't get skewed and out of proportion.
+**/
 void	isometric(t_fdf *fdf)
 {
 	int	tmp;
@@ -23,6 +28,9 @@ void	isometric(t_fdf *fdf)
 	fdf->b->y = (tmp + fdf->b->y) * sin(0.523599) - fdf->b->z;
 }
 
+/** This is our other view, we simply just set the 
+ * angles to match the perspective.
+**/
 void	parallel(t_fdf *fdf, int keypress)
 {
 	if (keypress == TOP)
@@ -39,6 +47,10 @@ void	parallel(t_fdf *fdf, int keypress)
 	}
 }
 
+/** This function is called whenever the user
+ * is pressing the reset button, and it simply
+ * resets the variables to their original value
+**/
 void	reset_view(t_fdf *fdf)
 {
 	fdf->zoom = (WIDTH / fdf->width) / 3;
@@ -60,6 +72,9 @@ void	reset_view(t_fdf *fdf)
 			fdf->interface->parallel, 0, 0);
 }
 
+/** This function calculates the current position on a scale
+ * from 1 to 0, where 1 is the max and 0 is the min value.
+**/
 float	fraction(float min, float max, float current)
 {
 	if (min != max)

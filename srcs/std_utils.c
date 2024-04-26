@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:39:05 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/22 16:21:02 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:27:18 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -72,4 +72,18 @@ int	ft_atoi_base(char *line)
 		line++;
 	}
 	return (result);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write (1, "\n", 1);
+	return ;
 }

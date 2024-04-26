@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:34:43 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/22 16:18:32 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 13:06:09 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -56,11 +56,17 @@ int	get_height(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		(perror(ERR_OPEN), exit(1));
+		(error(9), exit(1));
 	i = 0;
 	while (1)
 	{
 		line = get_next_line(fd);
+		if (!line && i <= 0)
+		{
+			error(5);
+			close(fd);
+			exit(1);
+		}
 		if (!line)
 		{
 			close(fd);
@@ -69,8 +75,6 @@ int	get_height(char *file)
 		free(line);
 		i++;
 	}
-	close(fd);
-	return (i);
 }
 
 int	get_width(char *file)
@@ -82,7 +86,7 @@ int	get_width(char *file)
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		(perror(ERR_OPEN), exit(1));
+		(error(9), exit(1));
 	line = get_next_line(fd);
 	if (!line)
 	{

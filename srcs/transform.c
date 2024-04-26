@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:47:12 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 15:59:02 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:48:11 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -56,7 +56,7 @@ void	rotate_y(t_fdf *fdf)
  * to our image. It takes into consideration the panel which is of 
  * width 300 pixels. 
 **/
-void	coordinates(t_fdf *fdf)
+void	transformer(t_fdf *fdf)
 {
 	fdf->a->x *= fdf->zoom;
 	fdf->b->x *= fdf->zoom;

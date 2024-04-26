@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:37:46 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/22 16:25:58 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:51:46 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -23,6 +23,8 @@ int	store_value(int i, int j, t_fdf *fdf, char **line)
 	int	value;
 
 	value = ft_atoi(*line);
+	if (value > 10000 || value < -10000)
+		(error(10), exit(1));
 	while (**line && ft_isdigit(**line))
 		(*line)++;
 	if (**line == ',')
@@ -83,10 +85,10 @@ int	**fill_map(t_fdf *fdf, int fd, int **map)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			(free_array(map), close(fd), perror(READ_ERR), exit(1));
+			(free_array(map), close(fd), error(2), exit(1));
 		map[i] = get_row(fdf, line, i);
 		if (!map[i])
-			(free_array(map), close(fd), perror(ERR_MALLOC), exit(1));
+			(free_array(map), close(fd), error(1), exit(1));
 		free(line);
 		i++;
 	}
@@ -105,10 +107,10 @@ int	**make_map(t_fdf *fdf, char *file)
 
 	map = malloc(sizeof(int *) * (fdf->height));
 	if (!map)
-		(perror(ERR_MALLOC), exit(1));
+		(error(1), exit(1));
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		(free(map), perror(ERR_OPEN), exit(1));
+		(free(map), error(6), exit(1));
 	fill_map(fdf, fd, map);
 	close(fd);
 	return (map);

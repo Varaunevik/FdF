@@ -44,6 +44,8 @@ $(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(LIBS)
 
 all: lib $(NAME)
 
+bonus: all
+
 lib:
 	@make -C $(LIB_DIR)minilibx_macos
 
@@ -61,4 +63,4 @@ fclean:
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

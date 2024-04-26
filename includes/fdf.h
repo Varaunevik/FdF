@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 15:19:21 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 15:20:21 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:53:13 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FDF_H
@@ -32,6 +32,7 @@ void	my_mlx_pixel_put_over(int x, int y, t_fdf *fdf);
 int		exit_program(void *f);
 void	free_array(int	**array);
 int		check_file(char *s);
+void	error(int code);
 
 /***************FDF.C*****************/
 void	init_fdf(t_fdf *fdf, char *file);
@@ -55,8 +56,8 @@ void	handle_key2(int keycode, t_fdf *fdf);
 void	change_color(t_fdf *fdf, int keycode);
 
 /*************MOUSEHOOKS.C*************/
-int		handle_mouse_release(int button, int x, int y, void *param);
 int		handle_mouse(int button, int x, int y, void *param);
+void	handle_mouse2(int button, int x, int y, t_fdf *fdf);
 
 /**************PARSE.C*****************/
 int		store_value(int i, int j, t_fdf *fdf, char **line);
@@ -74,7 +75,7 @@ float	fraction(float min, float max, float current);
 void	rotate_x(t_fdf *fdf);
 void	rotate_z(t_fdf *fdf);
 void	rotate_y(t_fdf *fdf);
-void	coordinates(t_fdf *fdf);
+void	transformer(t_fdf *fdf);
 
 /****************UTILS.C*****************/
 void	null_pointers(t_fdf *fdf);
@@ -94,6 +95,7 @@ int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_atoi_base(char *line);
 int		ft_tolower(int c);
+void	ft_putstr_fd(char *s, int fd);
 
 /*************GET_NEXT_LINE.C************/
 void	clean_list(t_list **list);

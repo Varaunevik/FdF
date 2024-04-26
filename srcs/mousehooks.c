@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:57:36 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 16:09:27 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:29:45 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -34,7 +34,7 @@ int	handle_mouse(int button, int x, int y, void *param)
 		isometric(fdf);
 		fdf->iso = 1;
 	}
-	draw_map(fdf);
+	handle_mouse2(button, x, y, fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr,
 		fdf->img->img_ptr, 0, 0);
 	if (fdf->iso == 0)
@@ -61,6 +61,7 @@ void	handle_mouse2(int button, int x, int y, t_fdf *fdf)
 		zoom(ZOOM_IN, fdf);
 	if (button == 5)
 		zoom(ZOOM_OUT, fdf);
+	draw_map(fdf);
 }
 
 void	zoom(int keycode, t_fdf *fdf)

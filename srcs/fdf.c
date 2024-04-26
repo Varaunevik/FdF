@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 12:54:56 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 15:46:27 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 12:57:14 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -17,10 +17,10 @@
 void	init_fdf(t_fdf *fdf, char *file)
 {
 	if (!check_file(file))
-		(perror(FILE_ERR), exit(1));
+		(error(4), exit(1));
 	null_pointers(fdf);
-	fdf->width = get_width(file);
 	fdf->height = get_height(file);
+	fdf->width = get_width(file);
 	fdf->colors = 0;
 	fdf->min = 0;
 	fdf->max = 0;
@@ -44,10 +44,10 @@ void	init_window(t_fdf *fdf)
 {
 	fdf->mlx_ptr = mlx_init();
 	if (!fdf->mlx_ptr)
-		(perror(MLX_INIT), exit(1));
+		(error(7), exit(1));
 	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, WIDTH, HEIGHT, "fdf");
 	if (!fdf->win_ptr)
-		(perror(MLX_WIN), exit(1));
+		(error(6), exit(1));
 }
 
 /** This function initialises the window and all the hook functions. 
@@ -66,7 +66,7 @@ void	make_cool(t_fdf	*fdf)
 	init_window(fdf);
 	img.img_ptr = mlx_new_image(fdf->mlx_ptr, WIDTH, HEIGHT);
 	if (!img.img_ptr)
-		(perror(MLX_IMG),
+		(error(8),
 			mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr), exit(1));
 	fdf->interface = &interface;
 	fdf->img = &img;

@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 10:59:34 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 15:34:17 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:19:45 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -28,7 +28,7 @@ void	draw_line(t_fdf *fdf)
 	[(fdf->a->x + fdf->width / 2)];
 	fdf->b->color = fdf->colored_map[(fdf->b->y + fdf->height / 2)]
 	[(fdf->b->x + fdf->width / 2)];
-	coordinates(fdf);
+	transformer(fdf);
 	dx = fdf->b->x - fdf->a->x;
 	dy = fdf->b->y - fdf->a->y;
 	my_mlx_pixel_put_under(fdf->a->x, fdf->a->y, fdf);

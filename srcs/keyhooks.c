@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:55:32 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/24 16:09:19 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:36:38 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -37,13 +37,13 @@ void	rotate(int keycode, t_fdf *fdf)
 void	shift(int keycode, t_fdf *fdf)
 {
 	if (keycode == UP)
-		fdf->y_shift += 4;
+		fdf->y_shift += 5;
 	if (keycode == DOWN)
-		fdf->y_shift -= 4;
+		fdf->y_shift -= 5;
 	if (keycode == LEFT)
-		fdf->x_shift -= 4;
+		fdf->x_shift -= 5;
 	if (keycode == RIGHT)
-		fdf->x_shift += 4;
+		fdf->x_shift += 5;
 	if (keycode == Z_UP)
 		fdf->z_height += 0.05;
 	if (keycode == Z_DOWN)
