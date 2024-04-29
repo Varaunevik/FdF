@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 12:11:17 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/26 12:19:32 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 13:25:12 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -87,5 +87,5 @@ void	error(int code)
 	if (code == 9)
 		ft_putstr_fd("Error: Cannot open file", 2);
 	if (code == 10)
-		ft_putstr_fd("Don't be crazy. Why would you pass such a large z-value?", 2);
+		ft_putstr_fd("Don't be crazy. No z-values over 10000 please.", 2);
 }

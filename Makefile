@@ -34,7 +34,7 @@ OBJ = $(patsubst $(SRCS_DIR)%.c,$(OBJ_DIR)%.o,$(SRCS))
 #-----------------COMPILING-------------#
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra $(INC)
-MLXFLAGS = -framework OpenGL -framework AppKit
+MLXFLAGS = -lm -framework OpenGL -framework AppKit
 
 #-------------------RULES---------------#
 $(OBJ_DIR)%.o:$(SRCS_DIR)%.c $(LIBS)
@@ -47,7 +47,7 @@ all: lib $(NAME)
 bonus: all
 
 lib:
-	@make -C $(LIB_DIR)minilibx_macos
+	@make -s -C $(LIB_DIR)minilibx_macos
 
 $(NAME): $(OBJ) $(LIBS) Makefile $(LIB_DIR) $(H_FILES)
 	@$(CC) $(OBJ) $(MLXFLAGS) $(LIBS) -o $(NAME)
@@ -57,8 +57,7 @@ clean:
 		make clean -C $(LIB_DIR)minilibx_macos
 		rm -rf $(OBJ_DIR)
 
-fclean: 
-		make clean -C $(LIB_DIR)minilibx_macos
+fclean: clean
 		rm -f $(NAME)
 
 re: fclean all

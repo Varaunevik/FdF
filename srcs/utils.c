@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:34:43 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/26 13:06:09 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 13:55:36 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -48,6 +48,10 @@ int	wordcount(char *line)
 	return (words);
 }
 
+/** This file gets the height of the file by calling GNL
+ * until it reaches EOF. If the file is empty it prints
+ * an error and exits the program.
+**/
 int	get_height(char *file)
 {
 	int		i;
@@ -77,6 +81,10 @@ int	get_height(char *file)
 	}
 }
 
+/** This function finds the width of the map by
+ * calling the GNL once and counts the amount of
+ * numbers in that line.
+**/
 int	get_width(char *file)
 {
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:02:11 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/25 16:43:07 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/29 10:26:03 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
@@ -71,9 +71,9 @@ void	put_panel(t_fdf *fdf)
 	t_panel	start;
 
 	fdf->interface->isometric = mlx_xpm_file_to_image(fdf->mlx_ptr,
-			"./xpm/Isometric.xpm", &isometric.width, &isometric.height);
+			"./xpm/Isometric", &isometric.width, &isometric.height);
 	fdf->interface->parallel = mlx_xpm_file_to_image(fdf->mlx_ptr,
-			"./xpm/Parallel.xpm", &parallel.width, &parallel.height);
+			"./xpm/Parallel", &parallel.width, &parallel.height);
 	fdf->interface->start = mlx_xpm_file_to_image(fdf->mlx_ptr,
-			"./xpm/start.xpm", &start.width, &start.height);
+			"./xpm/start", &start.width, &start.height);
 }

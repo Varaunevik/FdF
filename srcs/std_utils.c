@@ -6,7 +6,7 @@
 /*   By: vaunevik <vaunevik@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:39:05 by vaunevik          #+#    #+#             */
-/*   Updated: 2024/04/26 12:27:18 by vaunevik         ###   ########.fr       */
+/*   Updated: 2024/04/26 14:42:32 by vaunevik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/fdf.h"
