@@ -63,15 +63,12 @@ void	draw_map(t_fdf *fdf)
 
 This algorithm essentially iterates through all the coordinates. It is a little difficult to understand, so I created this visual for better understanding:
 
-![Screen Shot 2024-04-23 at 4.14.39 PM.png](Drawing%20the%20map%20ee48ca12f1844e54a9d3b510877da9b1/Screen_Shot_2024-04-23_at_4.14.39_PM.png)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/a5e6d12f-b96d-41ff-9549-bd8ed1737612)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/3b90885e-77e6-4d52-8340-95ec2cd4f5f1)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/9b8a66a8-af24-41be-b29e-10fc6827ccf5)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/d253b017-a165-4e37-9fec-0aabf1c6b798)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/f7c8ce42-e5ee-40bf-b07b-cee13e6c9fa2)
 
-![Screen Shot 2024-04-23 at 4.15.13 PM.png](Drawing%20the%20map%20ee48ca12f1844e54a9d3b510877da9b1/Screen_Shot_2024-04-23_at_4.15.13_PM.png)
-
-![Screen Shot 2024-04-23 at 4.15.28 PM.png](Drawing%20the%20map%20ee48ca12f1844e54a9d3b510877da9b1/Screen_Shot_2024-04-23_at_4.15.28_PM.png)
-
-![Screen Shot 2024-04-23 at 4.15.45 PM.png](Drawing%20the%20map%20ee48ca12f1844e54a9d3b510877da9b1/Screen_Shot_2024-04-23_at_4.15.45_PM.png)
-
-![Screen Shot 2024-04-23 at 4.16.56 PM.png](Drawing%20the%20map%20ee48ca12f1844e54a9d3b510877da9b1/Screen_Shot_2024-04-23_at_4.16.56_PM.png)
 
 You get the gist?
 
