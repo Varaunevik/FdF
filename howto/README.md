@@ -45,12 +45,3 @@
 -** This is the sort of program where a lot of things can go wrong, therefore it is important to error handle gracefully and have a multitude of error return statements so we can know exactly what it is that happened if the program crashes. 
 - This can be defined in our structures and can be printed out using the perror() function with the exit(1) command. 
 
-Okay, now that you have a step-by-step overview of the project and what needs to be done, let’s actually get to it, shall we?
-
-[**Convert from input map .fdf file to a 2D matrix.** ](Step-by-step%20acc3f5348adf4b42996a593b389f33a1/Convert%20from%20input%20map%20fdf%20file%20to%20a%202D%20matrix%20992973f9ee964cd8902765cd604b5659.md)
-
-[**Initialize the fdf structure with important data**](Step-by-step%20acc3f5348adf4b42996a593b389f33a1/Initialize%20the%20fdf%20structure%20with%20important%20data%2057576a5067bc4c8fa9eb1cd7054f7834.md)
-
-[**Drawing the map**](Step-by-step%20acc3f5348adf4b42996a593b389f33a1/Drawing%20the%20map%20ee48ca12f1844e54a9d3b510877da9b1.md)
-
-[**Line Drawing Algorithm**](Step-by-step%20acc3f5348adf4b42996a593b389f33a1/Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5.md)
