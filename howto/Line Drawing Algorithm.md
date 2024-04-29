@@ -110,6 +110,14 @@ You may be wondering what this p value is (which is very fair).
 
 Imagine you have a line that is going through two pixels - which one do we chose?
 
+![image](https://github.com/Varaunevik/FdF/assets/145858191/1aa68b6e-3317-4d8a-896c-af78f9ab6767)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/f6315573-2cdd-479e-ad68-ebc11555bade)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/8fb3b56e-9d59-4931-8dbe-31f98c5b9573)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/5eca320e-1729-483a-b585-a71b0c135081)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/4adeb405-3288-477f-9573-802c89d33f96)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/29fe22b4-e958-44e5-b7dd-bf39083a53e9)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/7ab536be-8abe-4f30-8169-e81282037879)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/1b3042f9-0e08-41fc-951c-0a6d2067cc75)
 
 
 I won’t lie, this part was possibly the trickiest part for me to understand, as I haven’t really dealt with pixels before. 
@@ -126,7 +134,8 @@ To obtain the correct position, we have to first multiply the y coordinate with 
 
 This is also why we need to iterate through the current pos and the next three ones, because these four will consitute the whole pixel, each byte keeping one color. 
 
-![Screen Shot 2024-04-24 at 2.46.12 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-24_at_2.46.12_PM.png)
+![image](https://github.com/Varaunevik/FdF/assets/145858191/0e66fd20-1214-4531-aea6-dece546433b0)
+
 
 ```c
 void	my_mlx_pixel_put_over(int x, int y, t_fdf *fdf)
