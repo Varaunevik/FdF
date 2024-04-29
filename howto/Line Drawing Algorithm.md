@@ -110,21 +110,7 @@ You may be wondering what this p value is (which is very fair).
 
 Imagine you have a line that is going through two pixels - which one do we chose?
 
-![Screen Shot 2024-04-25 at 12.14.11 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.14.11_PM.png)
 
-![Screen Shot 2024-04-25 at 12.14.22 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.14.22_PM.png)
-
-![Screen Shot 2024-04-25 at 12.14.35 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.14.35_PM.png)
-
-![Screen Shot 2024-04-25 at 12.14.49 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.14.49_PM.png)
-
-![Screen Shot 2024-04-25 at 12.15.11 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.15.11_PM.png)
-
-![Screen Shot 2024-04-25 at 12.15.31 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.15.31_PM.png)
-
-![Screen Shot 2024-04-25 at 12.15.43 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.15.43_PM.png)
-
-![Screen Shot 2024-04-25 at 12.16.28 PM.png](Line%20Drawing%20Algorithm%2071eea765afef4bd4806286ec78dc6ff5/Screen_Shot_2024-04-25_at_12.16.28_PM.png)
 
 I won’t lie, this part was possibly the trickiest part for me to understand, as I haven’t really dealt with pixels before. 
 
